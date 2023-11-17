@@ -1,4 +1,8 @@
 <?php
+
+//
+require_once(get_theme_file_path("/inc/tgm.php"));
+
 //Get a dynamic version for all scripts & css
 if(site_url() == "http://localhost:10004"){
   define("VERSION", time());
@@ -15,6 +19,7 @@ function philosophy_theme_setup(){
   add_theme_support("post-formats", array("image", "gallery", "quote", "audio", "video", "link"));
   add_editor_style("/assets/css/editor-style.css");
 
+  // register menu
   register_nav_menu("topmenu", __("Top Menu", "philosophy"));
 }
 add_action("after_setup_theme", "philosophy_theme_setup");
